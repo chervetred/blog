@@ -1,0 +1,118 @@
+# Googlebot
+
+User-agent: Googlebot
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# Google Images
+
+User-agent: Googlebot-Image
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# Google News
+
+User-agent: Googlebot-News
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# Google Video
+
+User-agent: Googlebot-Video
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# Bingbot
+
+User-agent: bingbot
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# Bing Images
+
+User-agent: msnbot-media
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# Bing News
+
+User-agent: msnbot-news
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# Yahoo! Slurp
+
+User-agent: Slurp
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# Yandex
+
+User-agent: Yandex
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# DuckDuckBot
+
+User-agent: DuckDuckBot
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# Baidu
+
+User-agent: Baiduspider
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
+
+
+# All other robots
+
+User-agent: *
+
+Allow: /
+
+Sitemap: https://chervepedia.github.io/sitemap.xml
+
