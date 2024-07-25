@@ -1,7 +1,7 @@
 title: ЧЕРВЕТРЕД
 description: Черветред - антироссиянский тред на Дваче
 baseurl: "" # использовать /если/этот/сайт/вложен
-url: "https://chervepedia.github.io"
+url: "https://chervetred.github.io"
 
 # Настройки permalink
 permalink: /:categories/:year/:month/:day/:title/
