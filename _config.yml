@@ -1,0 +1,64 @@
+title: ЧЕРВЕТРЕД|ЧЕРВЕПЕДИЯ
+description: Черветред - антироссиянский тред на Дваче
+baseurl: "" # использовать /если/этот/сайт/вложен
+url: "https://chervetred.github.io"
+
+# Настройки permalink
+permalink: /:categories/:year/:month/:day/:title/
+
+# Настройка меню
+menu:
+  - title: Главная
+    url: /
+    icon: fa-home
+  - title: Меню
+    icon: fa-bars
+    sub_menu:
+      - title: Обр на Тучаннел
+        url: http://www1.2channel.moe/pol
+        target: _blank
+      - title: Черветред
+        url: /about
+      - title: Контакты
+        url: /contact
+
+
+# Социальные сети и контакты
+social:
+  facebook: ""
+  twitter: "https://x.com/chervethread"
+  instagram: ""
+  linkedin: ""
+  pinterest: ""
+  tumblr: ""
+  telegram: "https://t.me/s3t_s3t"
+  youtube: ""
+  github: ""
+  vkontakte: "https://vk.com/s3ts3ts3t"
+  snapchat: ""
+  reddit: ""
+
+contact:
+  address: "Россия, Москва"
+  phone: "+79228292098"
+
+# Плагины
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-admin
+  - jekyll-paginate
+  - jekyll-loading-lazy
+  - jekyll-urls
+
+# Настройки пагинации
+paginate: 5
+paginate_path: "/page:num/"
+
+# Конфигурация SEO Tag
+seo:
+  title: true
+  description: true
+  url: true
+  image: true  # для обработки Open Graph изображений
+  twitter: true # Для Twitter Cards
