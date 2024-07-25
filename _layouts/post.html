@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<head>
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{{ base_url }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ base_url }}/assets/css/post.css">
+</head>
+
+<div class="post">
+    <div class="post-header">
+        <h1 class="post-title">{{ page.title }}</h1>
+    </div>
+    <div class="post-media-wrapper">
+        {% if page.video %}
+            <div class="video-wrapper">
+                <iframe src="{{ page.video }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+        {% elsif page.telegram %}
+            <div class="telegram-discussion">
+                <script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="{{ page.telegram | replace: 'https://t.me/', '' }}" data-width="100%"></script>
+            </div>
+        {% elsif page.twitter %}
+            <div class="embed-wrapper">
+                <blockquote class="twitter-tweet"><a href="{{ page.twitter }}"></a></blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        {% else %}
+            <div class="post-image-wrapper{% if page.telegram %} telegram-transparent{% endif %}">
+                <img src="{{ page.image | absolute_url }}" alt="{{ page.title }}">
+            </div>
+        {% endif %}
+
+        {% unless page.telegram or page.twitter %}
+            <div class="post-content">
+                {{ content }}
+            </div>
+        {% endunless %}
+        
+        {% include comments.html %}
+    </div>
+                                                 </div>
