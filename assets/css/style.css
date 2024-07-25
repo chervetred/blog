@@ -1,0 +1,485 @@
+:root {
+    --main-color: #ffb0e2; /* Светло-розовый цвет */
+    --main-color-dark: #e699c7; /* Более темный розовый цвет */
+}
+
+/* Общие стили для страницы */
+body {
+    background-color: #222;
+    color: #aaa;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Контейнер для основной структуры */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 45px;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Стили для футера */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3); /* Aero glass эффект */
+    backdrop-filter: blur(10px); /* Эффект стеклянной поверхности */
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0; /* Переносим футер наверх */
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
+}
+
+/* Стили для изображений в футере */
+.footer img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Стили для обёрток медиа в постах */
+.post-media-wrapper {
+    width: 100%;
+    margin-top: 16px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Соотношение сторон 16:9 */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Обёртка для встраиваемого контента */
+.embed-wrapper {
+    margin-top: 16px;
+    width: 100%;
+}
+
+/* Название сайта */
+.site-name {
+    margin-left: 10px;
+    color: var(--main-color);
+    font-size: 18px;
+}
+
+/* Иконки социальных сетей */
+.social-icons a {
+    margin: 0 10px;
+    color: var(--main-color);
+}
+
+/* Контактная информация */
+.contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.contact-info i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: var(--main-color);
+}
+
+/* Кнопка "Наверх" */
+.back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 18px;
+    color: var(--main-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: #222;
+}
+
+.back-to-top i {
+    font-size: 18px;
+    color: var(--main-color);
+}
+
+/* Стили для пагинации */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 14px;
+    margin-top: 28px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 500px; /* Ширина пагинации */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px; /* Закругление краёв */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
+}
+
+.pagination a.fas {
+    font-size: 20px;
+    color: var(--main-color);
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s; /* Плавный переход для цвета */
+}
+
+.pagination a.fas:hover {
+    color: var(--main-color-dark);
+}
+
+.page-numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.page-number {
+    font-size: 16px;
+    margin: 0 10px;
+    color: #888;
+    text-decoration: none;
+}
+
+.page-number.current {
+    color: #fff;
+}
+
+/* Стили для контейнеров логотипа, заголовка, описания и меню */
+.logo-container, .title-container, .description-container, .menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Стили для логотипа */
+.logo-container img {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Стили для заголовка */
+.title-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--main-color);
+    text-align: left; /* Текст в заголовке поста центрируется слева */
+}
+
+/* Стили для описания */
+.description-container p {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Стили для меню */
+.menu-container {
+    width: 100%;
+    max-width: 300px; /* Ширина меню */
+    border-image: linear-gradient(to right, var(--main-color), var(--main-color-dark)) 1;
+    display: flex; /* Используем flexbox */
+    justify-content: center; /* Выравнивание по горизонтали */
+}
+
+/* Сетка для меню */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding-top: 16px;
+    justify-content: center; /* Выравнивание элементов внутри grid по горизонтали */
+}
+
+.menu-item {
+    position: relative; /* Родительское позиционирование */
+}
+
+/* Ссылки меню */
+.menu-link {
+    display: block;
+    color: var(--main-color);
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
+    border: none;
+    border-radius: 10px; /* Закругление краёв ссылок */
+}
+
+.menu-link:hover {
+    color: var(--main-color-dark);
+}
+
+.menu-link:active {
+    transform: translateY(2px);
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.menu-link.has-submenu::after {
+    font-size: 0.8em;
+}
+
+/* Подменю */
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+    width: auto; /* Автоматическая ширина подменю под содержимое */
+    min-width: 150px; /* Минимальная ширина, чтобы избежать слишком узкого подменю */
+    border-radius: 10px; /* Закругление краёв подменю */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень для подменю */
+    padding: 0; /* Убираем отступы по умолчанию */
+    z-index: 1000; /* Устанавливаем z-index, чтобы подменю было поверх других элементов */
+}
+
+/* Подменю ссылки */
+.sub-menu a {
+    display: block;
+    color: #888;
+    text-decoration: none;
+    padding: 10px;
+    position: relative; /* Для позиционирования псевдо-элемента */
+    transition: background-color 0.3s;
+}
+
+/* Эффект подчеркивания */
+.sub-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--main-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.sub-menu a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Подменю ссылки при наведении */
+.sub-menu a:hover {
+    background-color: #222;
+    color: var(--main-color-dark);
+}
+
+/* Стили для контента */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Ширина контента */
+    padding-bottom: 50px; /* Уменьшен отступ снизу */
+    margin-top: 24px;
+}
+
+/* Стили для постов */
+.post {
+    background-color: #222;
+    margin-top: 45px; 
+    margin-bottom: 15px; /* Отступ между постами 15px */
+    padding: 0;
+    width: 100%;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px; /* Ширина постов */
+    border-radius: 15px; /* Закругление краёв постов */
+}
+
+/* Заголовок поста */
+.post-header {
+    padding: 10px 15px;
+}
+
+.post-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--main-color);
+    margin: 0;
+    text-align: left; /* Центрирование текста заголовка слева */
+}
+
+/* Основные стили для изображения в посте */
+.post-image-wrapper {
+    position: relative;
+    max-width: 500px; /* Максимальная ширина контейнера */
+    max-height: 600px; /* Максимальная высота контейнера */
+    width: auto; /* Ширина контейнера будет зависеть от содержимого */
+    height: auto; /* Высота контейнера будет зависеть от содержимого, но не превысит 600px */
+    overflow: hidden;
+    margin: auto; /* Центрирование контейнера по горизонтали */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центрирование изображения по вертикали */
+}
+
+/* Стили для изображения */
+.post-image-wrapper img {
+    max-width: 100%; /* Ограничивает ширину изображения размером контейнера */
+    max-height: 600px; /* Ограничивает высоту изображения размером контейнера */
+    width: auto; /* Автоматическая ширина, сохраняет пропорции */
+    height: auto; /* Автоматическая высота, сохраняет пропорции */
+    object-fit: contain; /* Сохраняет пропорции изображения и не обрезает его */
+}
+
+/* Содержимое поста */
+.post-content {
+    padding: 8px;
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Подвал поста */
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px groove var(--main-color);
+}
+
+/* Стили для телеграм виджета */
+.telegram-discussion {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Стили для сайдбара */
+.sidebar {
+    background-color: #222;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+margin-top: 45px;
+    position: sticky;
+    top: 20px;
+    width: 100%;
+    max-width: 300px; /* Ширина сайдбара */
+    margin-right: 45px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px; /* Закругление краёв */
+}
+
+.social-icons-sidebar {
+  display: flex;
+  justify-content: center; /* Центрирование всех элементов по горизонтали */
+  gap: 15px;
+  margin-top: 4px;
+}
+
+.social-icons-sidebar a {
+  display: flex;
+  justify-content: center;  /* Центрирование контента внутри ссылки по горизонтали */
+  align-items: center;
+  font-size: 1.2rem;
+  color: #ffb0e2;
+  text-decoration: none;  /* Удаление подчёркиваний */
+  transition: color 0.3s;
+}
+
+.social-icons-sidebar a:hover {
+  color: #e699c7;
+}
+
+/* Медиа-запрос для устройств с шириной экрана 768px и более */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 90%;
+    }
+
+    .sidebar {
+        margin-right: 45px; 
+margin-top: 45px;
+        top: 0;
+        width: 100%;
+        max-width: 250px; /* Ширина сайдбара */
+    }
+
+    .content {
+        max-width: 500px; /* Ширина контента */
+        margin-top: 0;
+    }
+
+    .back-to-top {
+        bottom: 100px;
+        right: 40px;
+    }
+}
+
+/* Медиа-запрос для устройств с шириной экрана до 767px */
+@media (max-width: 767px) {
+    /* Стили для изображения */
+    .post-image-wrapper img {
+        max-width: 100%; 
+        max-height: 100%;
+        width: auto;  
+        height: auto; 
+        object-fit: contain; 
+    }
+   
+    .sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4px;
+    }
+
+
+    .content {
+        width: 100%;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer {
+        display: none; /* Прячем футер в мобильной версии */
+    }
+  }
