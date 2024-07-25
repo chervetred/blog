@@ -1,0 +1,68 @@
+---
+layout: default
+pagination:
+  enabled: true
+---
+
+<div class="content">
+    {% for post in paginator.posts %}
+    <div class="post">
+        <div class="post-header">
+            <div class="post-title">
+                {{ post.title }}
+            </div>
+        </div>
+        <div class="post-media-wrapper">
+            {% if post.video %}
+                <div class="video-wrapper">
+                    <iframe src="{{ post.video }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            {% elsif post.telegram %}
+                <div class="post-image-wrapper">
+                    <div class="embed-wrapper">
+                        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="{{ post.telegram | replace: 'https://t.me/', '' }}" data-width="100%" data-userpic="false" data-color="FFB0E2" data-dark="1"></script>
+                    </div>
+                </div>
+            {% elsif post.twitter %}
+                <div class="embed-wrapper">
+                    <blockquote class="twitter-tweet"><a href="{{ post.twitter }}"></a></blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            {% else %}
+                <div class="post-image-wrapper">
+                    <img src="{{ post.image | absolute_url }}" alt="{{ post.title }}">
+                </div>
+            {% endif %}
+        </div>
+        {% unless post.telegram or post.twitter %}
+        <div class="post-content">
+            {{ post.content }}
+        </div>
+        {% endunless %}
+        <div class="post-footer">
+            <div class="read-more" data-url="{{ post.url | absolute_url }}">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="post-date">{{ post.date | date: "%d.%m.%Y" }}</div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="pagination">
+    {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | absolute_url }}" class="fas fa-chevron-left"></a>
+    {% endif %}
+    <div class="page-numbers">
+        {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | absolute_url }}" class="page-number previous">{{ paginator.previous_page }}</a>
+        {% endif %}
+        <span class="page-number current">{{ paginator.page }}</span>
+        {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | absolute_url }}" class="page-number next">{{ paginator.next_page }}</a>
+        {% endif %}
+    </div>
+    {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | absolute_url }}" class="fas fa-chevron-right"></a>
+    {% endif %}
+                      </div>
