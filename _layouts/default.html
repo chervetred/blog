@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+{% seo %}
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+
+  {% if page.url == '/' %}
+    <!-- Open Graph Meta Tags for the Home Page -->
+    <meta property="og:title" content="{{ site.title | escape }}" />
+    <meta property="og:description" content="{{ site.description | escape }}" />
+    <meta property="og:image" content="{{ '/assets/images/logo.png' | absolute_url }}" />
+    <meta property="og:url" content="{{ site.url | absolute_url }}" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card Meta Tags for the Home Page -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ site.title | escape }}" />
+    <meta name="twitter:description" content="{{ site.description | escape }}" />
+    <meta name="twitter:image" content="{{ '/assets/images/logo.png' | absolute_url }}" />
+  {% else %}
+    <!-- Open Graph Meta Tags for a Blog Post -->
+    <meta property="og:title" content="{{ page.title | escape }}" />
+    <meta property="og:description" content="{{ page.excerpt | strip_html | escape }}" />
+    <meta property="og:image" content="{{ page.image | absolute_url }}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:type" content="article" />
+    
+    <!-- Twitter Card Meta Tags for a Blog Post -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ page.title | escape }}" />
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html | escape }}" />
+    <meta name="twitter:image" content="{{ page.image | absolute_url }}" />
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+  {% endif %}
+
+  <!-- Additional Meta Tags -->
+  <meta name="description" content="{{ site.description }}" />
+
+
+<!-- JSDelivr  -->
+<script src="https://cdn.jsdelivr.net/npm/twallpaper@latest/dist/index.umd.js"></script>
+
+<!-- UNPKG -->
+<script src="https://unpkg.com/twallpaper@latest/dist/index.umd.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.2/css/hover-min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ base_url }}/assets/css/style.css">
+  {% if page.css %}
+      <link rel="stylesheet" href="{{ base_url }}/assets/css/{{ page.css }}">
+  {% endif %}
+  
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo-container">
+        <img src="{{ '/assets/images/logo.png' | absolute_url }}" alt="Логотип">
+      </div>
+      <div class="title-container">
+        <h1>{{ site.title }}</h1>
+      </div>
+      <div class="description-container">
+        <p><em>{{ site.description }}</em></p>
+      </div>
+      <div class="menu-container">
+        <div class="menu-grid">
+          {% for item in site.menu %}
+            {% if item.sub_menu %}
+              <div class="menu-item">
+                <a href="javascript:void(0);" class="menu-link has-submenu">
+                  {% if item.icon %}
+                    <i class="fas {{ item.icon }}"></i>
+                  {% endif %}
+                  {{ item.title }}
+                </a>
+                <div class="sub-menu">
+                  {% for sub_item in item.sub_menu %}
+                    <a href="{{ sub_item.url }}" class="hvr-outline-in" {% if sub_item.target %}target="{{ sub_item.target }}"{% endif %}>{{ sub_item.title }}</a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% else %}
+              {% if item.title == "Главная" or item.title == "Меню" %}
+                <a href="{{ item.url }}" class="menu-link">
+                  {% if item.icon %}
+                    <i class="fas {{ item.icon }}"></i>
+                  {% endif %}
+                </a>
+              {% else %}
+                <a href="{{ item.url }}" class="menu-link">
+                  {% if item.icon %}
+                    <i class="fas {{ item.icon }}"></i>
+                  {% endif %}
+                  {{ item.title }}
+                </a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="social-icons-sidebar">
+        {% if site.social.facebook != "" %}
+          <a href="{{ site.social.facebook }}" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        {% endif %}
+        {% if site.social.twitter != "" %}
+          <a href="{{ site.social.twitter }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        {% endif %}
+        {% if site.social.instagram != "" %}
+          <a href="{{ site.social.instagram }}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        {% endif %}
+        {% if site.social.linkedin != "" %}
+          <a href="{{ site.social.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        {% endif %}
+        {% if site.social.pinterest != "" %}
+          <a href="{{ site.social.pinterest }}" target="_blank" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        {% endif %}
+        {% if site.social.tumblr != "" %}
+          <a href="{{ site.social.tumblr }}" target="_blank" title="Tumblr"><i class="fab fa-tumblr"></i></a>
+        {% endif %}
+        {% if site.social.telegram != "" %}
+          <a href="{{ site.social.telegram }}" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        {% endif %}
+        {% if site.social.youtube != "" %}
+          <a href="{{ site.social.youtube }}" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        {% endif %}
+        {% if site.social.github != "" %}
+          <a href="{{ site.social.github }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        {% endif %}
+        {% if site.social.vkontakte != "" %}
+          <a href="{{ site.social.vkontakte }}" target="_blank" title="VK"><i class="fab fa-vk"></i></a>
+        {% endif %}
+        {% if site.social.snapchat != "" %}
+          <a href="{{ site.social.snapchat }}" target="_blank" title="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+        {% endif %}
+        {% if site.social.reddit != "" %}
+          <a href="{{ site.social.reddit }}" target="_blank" title="Reddit"><i class="fab fa-reddit"></i></a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="content">
+      {{ content }}
+
+      {% if page.include_comments %}
+        <!-- Including Comments -->
+        {% include 'comments.html' %}
+        <!-- End of Comments Inclusion -->
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="left-footer">
+      <img src="{{ '/assets/images/logo.png' | absolute_url }}" alt="Логотип">
+      <span class="site-name">{{ site.title }}</span>
+    </div>
+    <div class="contact-info">
+      {% if site.contact.phone != "" %}
+        <i class="fas fa-phone-alt"></i> {{ site.contact.phone }}
+      {% endif %}
+      {% if site.contact.address != "" %}
+        <i class="fas fa-map-marker-alt" style="margin-left: 20px;"></i> {{ site.contact.address }}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="{{ '/assets/js/script.js' | absolute_url }}"></script>
+</body>
+  </html>
