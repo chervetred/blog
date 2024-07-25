@@ -1,0 +1,55 @@
+/* post */
+
+.post {
+    /* Стили из глобального CSS */
+    background-color: #222;
+    margin-bottom: 24px;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    border-radius: 15px; /* Закругление краёв постов */
+    /* Убираем тени */
+    box-shadow: none;
+}
+
+.post-header {
+    padding: 10px 15px;
+    border-bottom: 1px groove var(--main-color);
+}
+
+.post-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--main-color);
+    margin: 0;
+}
+
+.post-image-wrapper {
+    margin-top: 16px;
+}
+
+.post-image-wrapper img {
+    width: 100%;
+    display: block;
+    border-radius: 0; /* Если нужнв закругления */
+}
+
+.post-content {
+    padding: 15px;
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px groove var(--main-color);
+      }
